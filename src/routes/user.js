@@ -39,7 +39,6 @@ router.post('/login', async (req,res) => {
 
         // Envoi du token dans un cookie depuis le serveur (Node.js/Express)
         res.cookie('authToken', authToken);
-   
         res.redirect("/home");
             
     } catch (e) {
