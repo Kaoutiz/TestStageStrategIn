@@ -12,8 +12,11 @@ router.get("/login", authentification, async (req, res, next) =>{
 });
 
 router.get("/home", authentification, async (req, res, next) =>{
+    const emailConnectedUser = req.user.email;
+
     const user = await User.find({});
-    res.render("home", { users: user })
+    
+    res.render("home", { users: user, emailConnectedUser: emailConnectedUser })
 });
 
 router.post("/register", authentification, async (req, res, next) =>{
@@ -36,6 +39,7 @@ router.post('/login', async (req,res) => {
 
         // Envoi du token dans un cookie depuis le serveur (Node.js/Express)
         res.cookie('authToken', authToken);
+   
         res.redirect("/home");
             
     } catch (e) {
