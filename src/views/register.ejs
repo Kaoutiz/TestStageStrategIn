@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <% if (typeof error !== 'undefined') { %>
+            <p><%= error %></p>
+        <% } %>
+        <form action="/register" method="post" name="form1">
+            <input type="text" name="email" id="email" placeholder="Adresse email" value="" required>
+            <input type="password" name="password" id="password" placeholder="Mot de passe" value="" required>
+            <input type="submit" value="S'inscrire"><br>
+            <a href="/login"><u>Déjà un compte ?</u></a>
+        </form>
+    </body>
+</html>
