@@ -2,13 +2,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
+        <link rel="icon" href="../../public/img/favicon.jpeg" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     </head>
     <body>
+        <div class="header">
+            <a href="/"><img src="img/logo.png" alt="Logo" height="60"></a>
+        </div>
         <div class="container-fluid mt-4">
-            <a href="/" class="back btn btn-secondary"><i class="bi bi-arrow-left"></i> <span>Accueil</span></a>
+            <a href="/" class="back btn btn-light"><i class="bi bi-arrow-left"></i> <span>Accueil</span></a>
             <form action="/login" method="post" name="loginForm" id="loginForm" class="mt-4">
                 <h1 class="mb-4">Login</h1>
                 <% if (typeof error !== 'undefined') { %>
@@ -16,12 +20,12 @@
                 <% } %>
                 <div class="form-group" id="loginFormContent">
                     <input type="text" name="email" id="email" placeholder="Adresse email" value="" class="form-control <% if (typeof error !== 'undefined') { %>is-invalid<% } %>" required>
-                    <div class="invalid-feedback">Champ incorrect.</div>
+                    <div class="invalid-feedback">Veuillez renseigner une adresse email correct.</div>
                     <input type="password" name="password" id="password" placeholder="Mot de passe" value="" class="form-control mt-4 <% if (typeof error !== 'undefined') { %>is-invalid<% } %>" required>
-                    <div class="invalid-feedback">Champ incorrect.</div>
-                    <input type="submit" value="Se connecter" class="btn btn-primary mt-2"><br>
+                    <div class="invalid-feedback">Veuillez renseigner un mot de passe correct.</div>
+                    <input type="submit" value="Se connecter" class="btn btn-primary mt-2">
+                    <a href="/register" class="mt-1"><u>Pas encore de compte ?</u></a>
                 </div>
-                <a href="/register"><u>Pas encore de compte ?</u></a>
             </form>
         </div>
     </body>

@@ -11,12 +11,12 @@ router.get("/login", authentification, async (req, res, next) =>{
     res.render("login")
 });
 
-router.get("/home", authentification, async (req, res, next) =>{
+router.get("/users", authentification, async (req, res, next) =>{
     const emailConnectedUser = req.user.email;
 
     const user = await User.find({});
     
-    res.render("home", { users: user, emailConnectedUser: emailConnectedUser })
+    res.render("users", { users: user, emailConnectedUser: emailConnectedUser })
 });
 
 router.post("/register", authentification, async (req, res, next) =>{
@@ -39,7 +39,7 @@ router.post('/login', async (req,res) => {
 
         // Envoi du token dans un cookie depuis le serveur (Node.js/Express)
         res.cookie('authToken', authToken);
-        res.redirect("/home");
+        res.redirect("/users");
             
     } catch (e) {
         if (e.message === "L'adresse email ou le mot de passe est invalide!") {

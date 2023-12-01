@@ -7,7 +7,7 @@ const authentification = async (req, res, next) => {
 
         // Vérifie si l'utilisateur est déjà connecté
         if (authToken) {
-            // Redirige vers la page home s'il est déjà connecté et tente d'accéder à /login ou /register
+            // Redirige vers la page users s'il est déjà connecté et tente d'accéder à /login ou /register
             const decodedToken = jwt.verify(authToken, 'foo');
 
             const user = await User.findById(decodedToken._id);
@@ -15,10 +15,10 @@ const authentification = async (req, res, next) => {
             req.user = user;
 
             if (req.path === '/login' || req.path === '/register' || req.path === '/') {
-                return res.redirect('/home');
+                return res.redirect('/users');
             }
             // Votre vérification de token et de l'utilisateur ici...
-            // Si l'utilisateur est déjà connecté, il peut accéder à d'autres routes sécurisées (home, etc.)
+            // Si l'utilisateur est déjà connecté, il peut accéder à d'autres routes sécurisées (users, etc.)
             return next();
         }
 
