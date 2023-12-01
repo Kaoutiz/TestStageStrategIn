@@ -3,16 +3,26 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 500px;
 }
 
-#loginForm, #registerForm, #containerHome{
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: #063aa9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm, #registerForm, #containerUsers{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#loginFormContent, #registerFormContent, #contentHome{
+#loginFormContent, #registerFormContent, #contentUsers{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,4 +32,22 @@
 
 .error{
     color: red;
+}
+
+.italic{
+    font-style: italic;
+}
+
+#buttonPortail{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.logout-btn{
+    width: 180px;
+}
+
+ul{
+    list-style: none;
 }
